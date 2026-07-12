@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Profile | RoadCrackVision</title>
+</head>
+
+<body>
+
+{% include 'navbar.html' %}
+
+<!-- HEADER -->
+<section class="hero-section">
+    <div class="container text-center">
+        <h1 class="fw-bold">Account Dashboard</h1>
+        <p class="mt-2">Manage your profile and view scan history</p>
+    </div>
+</section>
+
+<!-- PROFILE SECTION -->
+<section class="section-padding">
+    <div class="container">
+
+        <div class="row g-4">
+
+            <!-- Account Info -->
+            <div class="col-lg-6">
+                <div class="card card-modern p-4 h-100">
+
+                    <h4 class="fw-semibold mb-4">Account Information</h4>
+
+                    <form action="/update" method="post">
+
+                        <div class="mb-3">
+                            <label class="form-label">Username</label>
+                            <input type="text"
+                                   class="form-control modern-input"
+                                   name="name"
+                                   value="{{ details.username }}"
+                                   required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Email</label>
+                            <input type="email"
+                                   class="form-control modern-input"
+                                   name="email"
+                                   value="{{ details.email }}"
+                                   required>
+                        </div>
+
+                        <button class="btn btn-modern w-100">
+                            Update Profile
+                        </button>
+
+                    </form>
+
+                </div>
+            </div>
+
+            <!-- Change Password -->
+            <div class="col-lg-6">
+                <div class="card card-modern p-4 h-100">
+
+                    <h4 class="fw-semibold mb-4">Change Password</h4>
+
+                    <form action="/changePassword" method="post">
+
+                        <div class="mb-3">
+                            <label class="form-label">Old Password</label>
+                            <input type="password"
+                                   class="form-control modern-input"
+                                   name="oldPass"
+                                   required>
+                            {% if oldPassError %}
+                            <small class="text-danger">
+                                {{ oldPassError }}
+                            </small>
+                            {% endif %}
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">New Password</label>
+                            <input type="password"
+                                   class="form-control modern-input"
+                                   name="newPass"
+                                   required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Confirm Password</label>
+                            <input type="password"
+                                   class="form-control modern-input"
+                                   name="confPass"
+                                   required>
+                            {% if newPassError %}
+                            <small class="text-danger">
+                                {{ newPassError }}
+                            </small>
+                            {% endif %}
+                        </div>
+
+                        <button class="btn btn-modern w-100">
+                            Change Password
+                        </button>
+
+                    </form>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<!-- SCAN HISTORY -->
+{% if history_items %}
+<section class="section-padding bg-light">
+    <div class="container">
+
+        <h3 class="fw-semibold mb-4 text-center">
+            Scan History
+        </h3>
+
+        <div class="row g-4">
+
+            {% for history in history_items %}
+            <div class="col-md-6 col-lg-4">
+
+                <div class="card history-card h-100">
+
+                    <img src="{{ history.image }}"
+                         class="history-img"
+                         alt="Scan Image">
+
+                    <div class="card-body">
+
+                        <p class="mb-2">
+                            <strong>Result:</strong>
+                        </p>
+
+                        <p class="text-success fw-semibold">
+                            {{ history.result }}
+                        </p>
+
+                        <small class="text-muted">
+                            {{ history.date_created.strftime('%d %b %Y %I:%M %p') }}
+                        </small>
+
+                    </div>
+
+                </div>
+
+            </div>
+            {% endfor %}
+
+        </div>
+
+    </div>
+</section>
+{% endif %}
+
+{% include 'footer.html' %}
+
+</body>
+</html>

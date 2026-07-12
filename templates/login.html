@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login | RoadCrackVision</title>
+</head>
+<body>
+
+{% include 'navbar.html' %}
+
+<div class="auth-container">
+    <div class="auth-card">
+
+        <!-- LOGIN -->
+        <div id="loginSection">
+            <h3 class="text-center mb-4">Login</h3>
+
+            {% if loginError %}
+            <div class="alert alert-danger">{{ loginError }}</div>
+            {% endif %}
+
+            {% if successMessage %}
+            <div class="alert alert-success">{{ successMessage }}</div>
+            {% endif %}
+
+            <form action="/login" method="post">
+                <input type="text" name="username"
+                       class="form-control modern-input mb-3"
+                       placeholder="Username" required>
+
+                <input type="password" name="password"
+                       class="form-control modern-input mb-3"
+                       placeholder="Password" required>
+
+                <button class="btn btn-modern w-100">Login</button>
+            </form>
+
+            <hr>
+
+            <div class="text-center">
+                <button class="btn btn-success"
+                        onclick="showRegister()">
+                    Create New Account
+                </button>
+            </div>
+        </div>
+
+        <!-- REGISTER -->
+        <div id="registerSection" style="display:none;">
+
+            <h3 class="text-center mb-4">Create Account</h3>
+
+            {% if regError %}
+            <div class="alert alert-danger">{{ regError }}</div>
+            {% endif %}
+
+            <form action="/register" method="post">
+
+                <input type="text" name="username"
+                       class="form-control modern-input mb-3"
+                       placeholder="Username" required>
+
+                <input type="email" name="email"
+                       class="form-control modern-input mb-3"
+                       placeholder="Email" required>
+
+                <input type="password" name="newPass"
+                       class="form-control modern-input mb-3"
+                       placeholder="Password" required>
+
+                <input type="password" name="confPass"
+                       class="form-control modern-input mb-3"
+                       placeholder="Confirm Password" required>
+
+                <button class="btn btn-modern w-100">Register</button>
+            </form>
+
+            <div class="text-center mt-3">
+                <button class="btn btn-link"
+                        onclick="showLogin()">
+                    Already have an account?
+                </button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script>
+function showRegister(){
+    document.getElementById("loginSection").style.display="none";
+    document.getElementById("registerSection").style.display="block";
+}
+function showLogin(){
+    document.getElementById("loginSection").style.display="block";
+    document.getElementById("registerSection").style.display="none";
+}
+
+</script>
+
+</body>
+</html>

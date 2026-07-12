@@ -1,0 +1,48 @@
+{% include 'navbar.html' %}
+
+<section class="hero-section text-center">
+    <div class="container">
+        <h1 class="display-4 fw-bold">Deep Learning Based Road Damage Detection</h1>
+        <p class="lead mt-3">
+            Detect potholes instantly using deep learning models.
+        </p>
+        {% if session.get('logged') %}
+    <a href="/output" class="btn btn-modern mt-4">
+        Go to Scanner
+    </a>
+{% else %}
+    <a href="/login" class="btn btn-modern mt-4">
+        Get Started
+    </a>
+{% endif %}
+    </div>
+</section>
+
+<div class="container py-5">
+    <div class="row g-4">
+
+        <div class="col-md-4">
+            <div class="card card-modern p-4 text-center">
+                <h4>Upload Image</h4>
+                <p>Submit road images for instant AI analysis.</p>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card card-modern p-4 text-center">
+                <h4>Deep Learning Models</h4>
+                <p>MobileNet, CNN & InceptionResNet.</p>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card card-modern p-4 text-center">
+                <h4>Real-Time Results</h4>
+                <p>Get predictions within seconds.</p>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+{% include 'footer.html' %}

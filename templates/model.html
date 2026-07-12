@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Models | RoadCrackVision</title>
+</head>
+
+<body>
+
+{% include 'navbar.html' %}
+
+<!-- HERO SECTION -->
+<section class="hero-section">
+    <div class="container">
+        <h1 class="fw-bold">Deep Learning Models</h1>
+        <p class="mt-3">
+            The intelligence behind RoadCrackVision’s Deep Learning Based detection system.
+        </p>
+    </div>
+</section>
+
+<!-- INTRO SECTION -->
+<section class="section-padding">
+    <div class="container text-center">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <h2 class="fw-semibold mb-3">How Our System Works</h2>
+                <p class="text-muted">
+                    Our platform leverages state-of-the-art convolutional neural
+                    network architectures trained on real-world road datasets.
+                    These models are optimized for accuracy, efficiency, and
+                    scalability to ensure reliable pothole detection in
+                    diverse environmental conditions.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- MODELS SECTION -->
+<section class="section-padding bg-light">
+    <div class="container">
+
+        <div class="row g-4">
+
+            <!-- CNN -->
+            <div class="col-md-4">
+                <div class="card card-modern p-4 text-center h-100">
+                    <img src="../static/images/model/cnn.webp"
+                         alt="CNN Model"
+                         class="img-fluid mb-3"
+                         style="max-height:180px; object-fit:contain;">
+
+                    <h4 class="fw-semibold">CNN</h4>
+
+                    <p class="text-muted mt-3">
+                        Convolutional Neural Networks form the foundation of our
+                        detection system. They specialize in extracting spatial
+                        features such as cracks, edges, and surface irregularities
+                        from road images.
+                    </p>
+                </div>
+            </div>
+
+            <!-- MobileNet -->
+            <div class="col-md-4">
+                <div class="card card-modern p-4 text-center h-100">
+                    <img src="../static/images/model/MobileNet.png"
+                         alt="MobileNet Model"
+                         class="img-fluid mb-3"
+                         style="max-height:180px; object-fit:contain;">
+
+                    <h4 class="fw-semibold">MobileNet</h4>
+
+                    <p class="text-muted mt-3">
+                        MobileNet is designed for efficiency and speed.
+                        Its lightweight architecture enables real-time
+                        pothole detection with minimal computational cost,
+                        making it ideal for deployment on edge devices.
+                    </p>
+                </div>
+            </div>
+
+            <!-- InceptionResNet -->
+            <div class="col-md-4">
+                <div class="card card-modern p-4 text-center h-100">
+                    <img src="../static/images/model/inceptionv3.png"
+                         alt="InceptionResNet Model"
+                         class="img-fluid mb-3"
+                         style="max-height:180px; object-fit:contain;">
+
+                    <h4 class="fw-semibold">InceptionResNet</h4>
+
+                    <p class="text-muted mt-3">
+                        InceptionResNet combines residual learning and
+                        multi-scale feature extraction, allowing the model
+                        to learn deeper representations and improve detection
+                        performance under complex road conditions.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<!-- PERFORMANCE SECTION -->
+<section class="section-padding">
+    <div class="container text-center">
+        <h2 class="fw-semibold mb-3">Built for Accuracy & Reliability</h2>
+        <p class="text-muted col-lg-8 mx-auto">
+            Our models are trained and evaluated using carefully curated
+            datasets to ensure optimal generalization. By combining multiple
+            architectures, we achieve a balance between performance,
+            computational efficiency, and robustness.
+        </p>
+
+        <a href="/result" class="btn btn-modern mt-4">
+            View Model Performance
+        </a>
+    </div>
+</section>
+
+{% include 'footer.html' %}
+
+</body>
+</html>

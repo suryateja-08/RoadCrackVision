@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Scan | RoadCrackVision</title>
+</head>
+<body>
+
+{% include 'navbar.html' %}
+
+<section class="section-padding">
+    <div class="container">
+
+        <div class="row g-5 justify-content-center">
+
+            <div class="col-lg-5">
+                <div class="card card-modern p-4">
+
+                    <h4 class="text-center mb-4">Upload Image</h4>
+
+                    <form action="/output" method="post" enctype="multipart/form-data">
+
+                        <div class="mb-3">
+                            <select name="model" class="form-select modern-input">
+                                <option value="0">MobileNet</option>
+                                <option value="1">CNN</option>
+                                <option value="2">InceptionResNet</option>
+                            </select>
+                        </div>
+
+                        <div class="mb-4">
+                            <input type="file"
+                                   name="imagefile"
+                                   class="form-control modern-input"
+                                   required>
+                        </div>
+
+                        <button type="submit"
+                                class="btn btn-modern w-100">
+                            Scan Image
+                        </button>
+
+                    </form>
+
+                </div>
+            </div>
+
+            <div class="col-lg-7">
+                <div class="card card-modern p-4">
+
+                    {% if image %}
+                        <img src="{{ image }}"
+                             class="img-fluid rounded mb-4">
+                    {% endif %}
+
+                    {% if result %}
+                        <h4 class="text-success text-center">
+                            {{ result }}
+                        </h4>
+                    {% else %}
+                        <p class="text-muted text-center">
+                            Upload an image to see prediction.
+                        </p>
+                    {% endif %}
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+{% include 'footer.html' %}
+
+</body>
+</html>

@@ -1,0 +1,11 @@
+# Ignore ML models
+*.keras
+*.h5
+*.pt
+
+# Ignore large test images (optional)
+static/images/test/
+
+# Ignore Python cache
+__pycache__/
+*.pyc
